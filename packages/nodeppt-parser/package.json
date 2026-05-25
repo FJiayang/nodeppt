@@ -30,6 +30,10 @@
         "url": "git://github.com/ksky521/nodeppt"
     },
     "license": "MIT",
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
     "dependencies": {
         "ejs": "^3.0.1",
         "fs-extra": "^8.1.0",

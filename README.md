@@ -17,7 +17,16 @@
 
 <h2 align="center">Install</h2>
 
-本 fork 未发布到公共 npm registry，本地从源码打包安装：
+已发布到公共 npm registry（[@fjiayang/nodeppt](https://www.npmjs.com/package/@fjiayang/nodeppt)），全局安装即可：
+
+```bash
+npm install -g @fjiayang/nodeppt
+```
+
+完成后 `fnodeppt` 命令即可全局使用，与上游 `nodeppt` 互不影响。
+
+<details>
+<summary>从源码安装（开发者用）</summary>
 
 ```bash
 git clone https://github.com/FJiayang/nodeppt
@@ -30,7 +39,7 @@ done
 npm install -g $(pwd)/*.tgz
 ```
 
-完成后 `fnodeppt` 命令即可全局使用，与上游 `nodeppt` 互不影响。
+</details>
 
 ## TODO
 * bug fix

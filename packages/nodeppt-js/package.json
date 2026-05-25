@@ -15,6 +15,10 @@
         "url": "git://github.com/ksky521/nodeppt"
     },
     "license": "MIT",
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
     "keywords": [
         "presentation",
         "powerpoint",
