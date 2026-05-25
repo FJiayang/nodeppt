@@ -1,6 +1,7 @@
 /**
  * @file hulk -serve
  */
+require('./lib/patch-md4');
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
