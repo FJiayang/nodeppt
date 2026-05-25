@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const {findExisting, chalk} = require('nodeppt-shared-utils');
+const {findExisting, chalk} = require('@fjiayang/nodeppt-shared-utils');
 
 exports.resolveEntry = entry => {
     const context = process.cwd();

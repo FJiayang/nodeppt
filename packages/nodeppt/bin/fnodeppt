@@ -8,7 +8,7 @@ const packageJson = require('../package.json');
 const requiredVersion = packageJson.engines.node;
 function checkNodeVersion(wanted, id) {
     if (!semver.satisfies(process.version, wanted)) {
-        console.log(chalk.red('  You must upgrade node to >=' + wanted + ' to use nodeppt'));
+        console.log(chalk.red('  You must upgrade node to >=' + wanted + ' to use fnodeppt'));
         process.exit(1);
     }
 }
@@ -28,13 +28,13 @@ program
     .option('-H, --host [host]', 'set host address', '0.0.0.0')
 
     .action((entry, cmd) => {
-        require('nodeppt-serve').serve(entry, cleanArgs(cmd));
+        require('@fjiayang/nodeppt-serve').serve(entry, cleanArgs(cmd));
     })
     .on('--help', () => {
         console.log('  Examples:');
         console.log();
-        console.log('    nodeppt serve slide.md');
-        console.log('    nodeppt serve slide.md -p 8080');
+        console.log('    fnodeppt serve slide.md');
+        console.log('    fnodeppt serve slide.md -p 8080');
         console.log();
     });
 
@@ -44,12 +44,12 @@ program
     .option('-d, --dest <dir>', 'output directory')
     .description('build html file')
     .action((entry, cmd) => {
-        require('nodeppt-serve').build(entry, cleanArgs(cmd));
+        require('@fjiayang/nodeppt-serve').build(entry, cleanArgs(cmd));
     })
     .on('--help', () => {
         console.log('  Examples:');
         console.log();
-        console.log('    nodeppt build slide.md');
+        console.log('    fnodeppt build slide.md');
         console.log();
     });
 
@@ -65,26 +65,26 @@ program
         console.log('  Examples:');
         console.log();
         console.log(chalk.gray('    # create a new slide with an official template'));
-        console.log('    $ nodeppt new slide.md');
+        console.log('    $ fnodeppt new slide.md');
         console.log();
         console.log(chalk.gray('    # create a new slide straight from a github template'));
-        console.log('    $ nodeppt new slide.md -t username/repo');
+        console.log('    $ fnodeppt new slide.md -t username/repo');
     });
 
 program.on('--help', () => {
     console.log('  Examples:');
     console.log();
     console.log(chalk.gray('    # create a new slide with an official template'));
-    console.log('    $ nodeppt new slide.md');
+    console.log('    $ fnodeppt new slide.md');
     console.log();
     console.log(chalk.gray('    # create a new slide straight from a github template'));
-    console.log('    $ nodeppt new slide.md -t username/repo');
+    console.log('    $ fnodeppt new slide.md -t username/repo');
     console.log();
     console.log(chalk.gray('    # start local sever show slide'));
-    console.log('    $ nodeppt serve slide.md');
+    console.log('    $ fnodeppt serve slide.md');
     console.log();
     console.log(chalk.gray('    # to build a slide'));
-    console.log('    $ nodeppt build slide.md');
+    console.log('    $ fnodeppt build slide.md');
     console.log();
 });
 

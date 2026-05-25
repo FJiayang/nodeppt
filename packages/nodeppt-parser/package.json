@@ -1,6 +1,6 @@
 {
-    "name": "nodeppt-parser",
-    "version": "2.2.1",
+    "name": "@fjiayang/nodeppt-parser",
+    "version": "2.3.0",
     "description": "",
     "main": "index.js",
     "scripts": {

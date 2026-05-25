@@ -6,7 +6,7 @@ const path = require('path');
 const chalk = require('chalk');
 
 const globalConfigPlugin = require('./lib/globalConfigPlugin');
-const {findExisting} = require('nodeppt-shared-utils');
+const {findExisting} = require('@fjiayang/nodeppt-shared-utils');
 const Service = require('./Service');
 
 function resolveEntry(entry) {

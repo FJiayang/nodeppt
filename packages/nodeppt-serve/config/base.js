@@ -3,7 +3,7 @@
  */
 // const path = require('path');
 const webpack = require('webpack');
-const {transformer, formatter} = require('nodeppt-shared-utils');
+const {transformer, formatter} = require('@fjiayang/nodeppt-shared-utils');
 module.exports = (api, options) => {
     const {version} = api.getNodepptOptions();
     api.chainWebpack((webpackConfig) => {
@@ -39,7 +39,8 @@ module.exports = (api, options) => {
             .end()
             .output.path(api.resolve(options.outputDir))
             .filename(`[name]${options.filenameHashing ? '.[hash:8]' : ''}.js`)
-            .publicPath(options.baseUrl);
+            .publicPath(options.baseUrl)
+            .hashFunction('sha256');
 
         webpackConfig.resolve
             .set('symlinks', false)
@@ -61,7 +62,7 @@ module.exports = (api, options) => {
             .loader(require.resolve('html-loader'))
             .end()
             .use('nodeppt-parser')
-            .loader(require.resolve('nodeppt-parser'))
+            .loader(require.resolve('@fjiayang/nodeppt-parser'))
             .options({plugins: options.plugins, template: options.baseTemplate})
             .end();
 

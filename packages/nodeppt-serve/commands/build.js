@@ -1,7 +1,7 @@
 /**
  * @file build 主要内容
  */
-const {info} = require('nodeppt-shared-utils');
+const {info} = require('@fjiayang/nodeppt-shared-utils');
 const path = require('path');
 module.exports = (api, options) => {
     api.registerCommand('build', {}, async function serve(args) {

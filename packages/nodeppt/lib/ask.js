@@ -3,7 +3,7 @@
  */
 
 const inquirer = require('inquirer');
-const {evaluate} = require('nodeppt-shared-utils');
+const {evaluate} = require('@fjiayang/nodeppt-shared-utils');
 
 const promptMapping = {
     string: 'input',

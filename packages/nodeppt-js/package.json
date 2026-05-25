@@ -1,6 +1,6 @@
 {
-    "name": "nodeppt-js",
-    "version": "2.2.1",
+    "name": "@fjiayang/nodeppt-js",
+    "version": "2.3.0",
     "description": "",
     "main": "index.js",
     "scripts": {

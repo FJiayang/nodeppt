@@ -1,6 +1,6 @@
 {
-    "name": "nodeppt-shared-utils",
-    "version": "2.2.1",
+    "name": "@fjiayang/nodeppt-shared-utils",
+    "version": "2.3.0",
     "description": "",
     "main": "index.js",
     "scripts": {

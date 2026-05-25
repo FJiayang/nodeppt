@@ -2,7 +2,7 @@
  * @file css webpack
  */
 
-// const {findExisting} = require('nodeppt-shared-utils');
+// const {findExisting} = require('@fjiayang/nodeppt-shared-utils');
 const getAssetPath = require('../lib/utils').getAssetPath;
 module.exports = (api, options) => {
     api.chainWebpack(webpackConfig => {

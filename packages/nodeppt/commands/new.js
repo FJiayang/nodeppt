@@ -23,7 +23,7 @@ const {
     log,
     downloadRepo,
     clearConsole
-} = require('nodeppt-shared-utils');
+} = require('@fjiayang/nodeppt-shared-utils');
 const ALIAS_MAP = process.env.alias || {
     buildin: path.parse(require.resolve('nodeppt-template-default')).dir,
     default: 'ksky521/nodeppt-template-default'

@@ -23,7 +23,7 @@ const {
     updateSpinner,
     stopSpinner,
     getDebugLogger
-} = require('nodeppt-shared-utils');
+} = require('@fjiayang/nodeppt-shared-utils');
 const {name, version: localVersion} = require('../package.json');
 const debug = getDebugLogger('generate', name);
 

@@ -2,7 +2,7 @@
  * 部分代码来自 vue cli
  * @file serve 主要内容
  */
-const {info, prepareUrls, getLatestVersion, newVersionLog} = require('nodeppt-shared-utils');
+const {info, prepareUrls, getLatestVersion, newVersionLog} = require('@fjiayang/nodeppt-shared-utils');
 const semver = require('semver');
 
 let newVersion = 0;
@@ -148,9 +148,18 @@ module.exports = (api, options) => {
 
                     console.log();
                     console.log('  NodePPT running at:');
-                    const networkUrl = publicUrl ? publicUrl.replace(/([^/])$/, '$1/') : urls.lanUrlForTerminal;
-                    console.log(`  - Url: ${chalk.cyan(networkUrl)}`);
-                    console.log(`  - Speaker Mode: ${chalk.cyan(networkUrl + '?mode=speaker')}`);
+                    if (publicUrl) {
+                        const networkUrl = publicUrl.replace(/([^/])$/, '$1/');
+                        console.log(`  - Url:          ${chalk.cyan(networkUrl)}`);
+                        console.log(`  - Speaker Mode: ${chalk.cyan(networkUrl + '?mode=speaker')}`);
+                    } else {
+                        console.log(`  - Local:           ${chalk.cyan(urls.localUrlForTerminal)}`);
+                        console.log(`  - Local Speaker:   ${chalk.cyan(urls.localUrlForTerminal + '?mode=speaker')}`);
+                        console.log(`  - Network:         ${chalk.cyan(urls.lanUrlForTerminal)}`);
+                        if (urls.lanUrlForConfig) {
+                            console.log(`  - Network Speaker: ${chalk.cyan(urls.lanUrlForTerminal + '?mode=speaker')}`);
+                        }
+                    }
                     console.log();
 
                     if (isFirstCompile) {

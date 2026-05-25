@@ -2,7 +2,7 @@
  * @file global config plugin
  */
 const path = require('path');
-const {findExisting} = require('nodeppt-shared-utils');
+const {findExisting} = require('@fjiayang/nodeppt-shared-utils');
 
 module.exports = function createConfigPlugin(context, entry, asLib) {
     return {
