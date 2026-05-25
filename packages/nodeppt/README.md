@@ -1,16 +1,36 @@
-# nodeppt 2.0
+# @fjiayang/nodeppt
 
 > 累死累活干不过做 PPT 的！<br/> > **查看效果：https://nodeppt.js.org**
 
-[![Markpress npm badge](https://nodei.co/npm/nodeppt.png)](https://www.npmjs.com/package/nodeppt)
+**@fjiayang/nodeppt** 是 [ksky521/nodeppt](https://github.com/ksky521/nodeppt) v2.2.1 的派生版本（fork），上游已停止维护、Node 17+ 起无法启动；本仓库适配 Node 22 与现代依赖，并与原版 npm 包共存。底层依然基于 [webslides](https://github.com/webslides/WebSlides)、webpack、markdown-it、posthtml。
 
-**nodeppt 2.0** 基于[webslides](https://github.com/webslides/WebSlides)、webpack、markdown-it、posthtml 重构，[新效果](https://nodeppt.js.org)
+## Fork 说明
+
+本 fork 与上游的差异：
+
+- 包名统一加 `@fjiayang/` scope（5 个包），避免与上游 `nodeppt` 冲突
+- CLI 命令重命名 `nodeppt` → `fnodeppt`，可与原版同时全局安装
+- 修复 Node 17+/OpenSSL 3 下 `ERR_OSSL_EVP_UNSUPPORTED` 启动崩溃（在 webpack 4 入口拦截 `createHash('md4')` 重定向到 sha256，并显式设置 `output.hashFunction = 'sha256'`）
+- 修复 dev server 输出 `Url: unavailable`：仿 vue-cli 区分 Local / Network，LAN 不可用时不再输出 `unavailable?mode=speaker` 这种废链接
+- mermaid 升级 8.5.2 → 11.15.0：支持新语法（六边形 `{{...}}` 等），切到 jsdelivr 的 ESM 模块加载，配套 `mermaid.run()` 异步 API
+- mermaid 块包装从 `.embed`（16:9 padding 容器）换成 `.lang-mermaid-wrap`（自由高度），消除上下截断
 
 ## Install
 
+本 fork 未发布到公共 npm registry，本地从源码打包安装：
+
 ```bash
-npm install -g nodeppt
+git clone https://github.com/FJiayang/nodeppt
+cd nodeppt
+npm install
+mkdir -p .tarballs && cd .tarballs && rm -f *.tgz
+for pkg in nodeppt-shared-utils nodeppt-js nodeppt-parser nodeppt-serve nodeppt; do
+  npm pack ../packages/$pkg
+done
+npm install -g $(pwd)/*.tgz
 ```
+
+完成后 `fnodeppt` 命令即可全局使用，与上游 `nodeppt` 互不影响。
 
 ## Usage
 
@@ -22,25 +42,25 @@ npm install -g nodeppt
 
 ```bash
 # create a new slide with an official template
-$ nodeppt new slide.md
+$ fnodeppt new slide.md
 
 # create a new slide straight from a github template
-$ nodeppt new slide.md -t username/repo
+$ fnodeppt new slide.md -t username/repo
 
 # start local sever show slide
-$ nodeppt serve slide.md
+$ fnodeppt serve slide.md
 
 # to build a slide
-$ nodeppt build slide.md
+$ fnodeppt build slide.md
 ```
 
 ### 帮助
 
 ```bash
 # help
-nodeppt -h
+fnodeppt -h
 # 获取帮助
-nodeppt serve -h
+fnodeppt serve -h
 ```
 
 ## 演讲者模式
@@ -519,7 +539,7 @@ window.WSPlugins_ = [
 
 参考[nodeppt-template-default](https://github.com/ksky521/nodeppt-template-default)。
 
-然后使用`nodeppt new username/repo xxx.md`使用
+然后使用`fnodeppt new username/repo xxx.md`使用
 
 ## Thanks
 
