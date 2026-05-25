@@ -17,16 +17,28 @@ i.fa {
     font-size: 8rem;
 }
 
-.embed .echarts,
-.embed .lang-mermaid {
+.embed .echarts {
     min-height: 20vw;
     > div {
         margin: 0 auto;
     }
 }
-.embed .lang-mermaid {
-    visibility: hidden;
+.lang-mermaid-wrap {
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
+    overflow: auto;
+}
+.lang-mermaid {
+    visibility: hidden;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    background: transparent;
+    > svg {
+        max-width: 100%;
+        height: auto;
+    }
 }
 .animated.delay-300 {
     animation-delay: 0.3s;

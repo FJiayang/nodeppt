@@ -12,8 +12,9 @@ module.exports = md => {
                 })
                 .join(' ');
             // 增加对 mermaidjs 支持，这样就可以画流程图了哦~
+            // 用自由高度容器，避免 .embed 的 16:9 padding 把图裁掉
             return `
-<div class="embed">
+<div class="lang-mermaid-wrap">
     <pre ${attrs}>${code}</pre>
 </div>
 `;
